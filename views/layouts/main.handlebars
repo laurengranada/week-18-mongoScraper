@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Scraper with Mongoose</title>
+	<title>Scraper with Mongoosed</title>
+
+	{{!-- jquery library --}}
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	{{!-- app.js link --}}
+	<script type="text/javascript" src="app.js"></script>
+
 <!-- link to v4 Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -26,9 +32,9 @@
       </li>
     </ul>
     <!-- Bootstrap button -->
-    <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#myModal">Scrape Articles Here</button>
+    <button class="btn btn-outline-success" id="scrapebutton" type="button" {{!-- data-toggle="modal" data-target="#myModal" --}}  >Scrape Articles Here</button>
 
-    <!-- Modal -->
+   {{!--  <!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -46,7 +52,7 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
+	</div> --}}
 
   </div>
 </nav>
@@ -61,6 +67,7 @@
 
 {{!-- handlebars entry --}}
 {{{ body }}}
+
 
 </body>
 </html>
