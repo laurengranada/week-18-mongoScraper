@@ -38,7 +38,7 @@ var scrape = function(callback){
 		});
 		//send back the results of info to callback
 		callback(results);
-	};
+	});
 };
 
 //export

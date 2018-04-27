@@ -2,61 +2,46 @@
 var express = require("express");
 var router = express.Router();
 var bodyParser = require("body-parser");
-var logger = require("morgan");
 var mongoose = require("mongoose");
-
-// Requiring our Note and Article models
-var Note = require("./models/Note.js");
-var Article = require("./models/Article.js");
-
-// Our scraping tools
-var request = require("request");
-var cheerio = require("cheerio");
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-mongoose.Promise = Promise;
-
+// Set Handlebars
+var exphbs = require("express-handlebars");
+//require route file
+require("./config/routes")(router);
+//set up port
+var PORT = process.env.PORT || 8080;
 
 // Initialize Express
 var app = express();
 
-// Set Handlebars
-var exphbs = require("express-handlebars");
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
-
-// Use morgan and body parser with our app  
-app.use(logger("dev"));
+//use body parser
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
+app.use(router);
+
+//mongDB
+var db = process.env.MONGODB_URI || "mongodb://localhost/week18";
+
 
 // Make public a static dir
 app.use(express.static("public"));
 
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/week18");
-var db = mongoose.connection;
-
-// Show any mongoose errors
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
+mongoose.connect(db, function(error){
+	if (error){
+		console.log(error);
+	} else{
+		console.log("mongoose connection is successful!");
+	}
 });
 
-// Once logged in to the db through mongoose, log a sucecess message
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
-
-// Import routes and give the server access to them.
-var routes = require("./routes.js"); // routes.js file here
-app.use("/", routes);
 
 // Listen on port 8080
-app.listen(8080, function() {
-  console.log("App running on port 8080!");
+app.listen(PORT, function() {
+  console.log("App running on port" + PORT);
 });

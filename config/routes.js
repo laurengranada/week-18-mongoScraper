@@ -5,6 +5,9 @@ var scrape = require("../scripts/scrape.js");
 var titlesController = require("../controllers/titles.js");
 var notesController = require("../controllers/notes.js");
 
+var express = require("express");
+var router = express.Router();
+
 module.exports = function(router){
   // Directs to the page without articles
   router.get("/", function(req, res) {
@@ -16,6 +19,8 @@ module.exports = function(router){
 });
   //a GET request to scrape website
   router.get("/scrape", function(req, res){
+    titlesController.fetch(function(err, docs){
+
     //only load NEW articles
     if(!docs || docs.insertedCount === 0){
       res.json({
@@ -27,7 +32,7 @@ module.exports = function(router){
       });
     }
   });
-};
+});
 
 //GET titles from mongoDB
 router.get("/scrape/titles", function(req, res){
@@ -88,4 +93,4 @@ router.post("/scrape/notes", function(req, res){
     res.json(data);
   });
 });
-
+};
