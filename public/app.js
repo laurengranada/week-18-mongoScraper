@@ -1,9 +1,3 @@
-//button for scraping articles
-$("#scrapebutton").on("click", function(){
-  $.get("/scrape").then(function(data){
-    
-  })
-})
 
 
 ////////////////////////////////////////////////////////////////////////
