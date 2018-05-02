@@ -5,8 +5,8 @@ var scrape = require("../scripts/scrape.js");
 var titlesController = require("../controllers/titles.js");
 var notesController = require("../controllers/notes.js");
 
-var express = require("express");
-var router = express.Router();
+// var express = require("express");
+// var router = express.Router();
 
 module.exports = function(router){
   // Directs to the page without articles

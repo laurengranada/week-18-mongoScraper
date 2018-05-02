@@ -5,7 +5,6 @@ var scrape = require("../scripts/scrape.js");
 var generateDate = require("../scripts/date.js");
 //models
 var Article = require("../models/Article.js");
-var Note = require("../models/Note.js");
 
 module.exports = {
 	fetch: function(callback){

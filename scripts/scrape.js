@@ -7,9 +7,9 @@ var cheerio = require("cheerio");
 //function scrapes buzzfeed
 var scrape = function(callback){
 	//grab the body of the html with request
-	request("https://www.buzzfeed.com/news", function(error, response, html){
+	request("https://www.buzzfeed.com/news", function(error, response, body){
 		//then load into cherrio and save it to $ fir a shorthand selector
-		var $ = cheerio.load(html);
+		var $ = cheerio.load(body);
 		//save article info in array
 		var results = [];
 		//find and loop through each element that has the "js-card_content" class 
@@ -33,11 +33,11 @@ var scrape = function(callback){
         			summary: summaryNeat
         		};
 
-        		results.push(info);
+        		articles.push(info);
 			};
 		});
 		//send back the results of info to callback
-		callback(results);
+		callback(articles);
 	});
 };
 
