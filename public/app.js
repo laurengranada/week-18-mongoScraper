@@ -1,3 +1,28 @@
+//calling on card div where articles generate
+var articleContainer = $(".card");
+//start function for page
+start();
+
+function start(){
+	//empty the card div
+	articleContainer.empty();
+	//ajax call for all articles that are not saved yet
+	$.get("/scrape/titles?saved=false").then(function(data){
+		if(data && data.length){
+			renderArticles(data);
+		} else{
+			renderEmpty();
+		}
+	});
+}
+
+function renderArticles(articles){
+
+}
+
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////
