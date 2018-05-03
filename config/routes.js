@@ -2,8 +2,8 @@
 //require scrape from scripts folder
 var scrape = require("../scripts/scrape.js");
 //require controllers
-var titlesController = require("../controllers/titles.js");
-var notesController = require("../controllers/notes.js");
+var titlesController = require("../controllers/titles");
+var notesController = require("../controllers/notes");
 
 // var express = require("express");
 // var router = express.Router();
@@ -69,8 +69,8 @@ router.patch("/scrape/titles", function(err, data){
 router.get("/scrape/notes/:ArticleId?", function(req, res){
   //add id to object
   var query = {};
-  if(req.params.ArticleId){
-    query._id  = req.params.ArticleId;
+  if(req.params.article_id){
+    query._id  = req.params.article_id;
   }
   //results from notesController
   notesController.get(query, function(err, data){

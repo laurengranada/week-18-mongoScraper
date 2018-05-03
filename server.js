@@ -32,7 +32,6 @@ app.use(router);
 //mongDB
 var db = process.env.MONGODB_URI || "mongodb://localhost/week18";
 
-
 mongoose.Promise = global.Promise;
 // Database configuration with mongoose
 mongoose.connect(db, function(error){
