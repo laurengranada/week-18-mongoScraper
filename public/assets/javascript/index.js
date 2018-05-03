@@ -82,7 +82,7 @@ $(document).ready(function(){
 	function handleScrape(){
 		$.get("/scrape").then(function(data){
 			start();
-			bootbox.alert("<h3 class='text-center m-top-80'>" + data.message + "<h3>")
+			bootbox.alert("<h3 class='text-center m-top-80'>" + data.message + "<h3>");
 		});
 	}
 

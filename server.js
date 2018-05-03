@@ -14,7 +14,7 @@ var router = express.Router();
 //require route file
 require("./config/routes")(router);
 // Make public a static dir
-app.use(express.static(__dirname + "public"));
+app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ 
 	defaultLayout: "main" 
@@ -33,7 +33,7 @@ app.use(router);
 var db = process.env.MONGODB_URI || "mongodb://localhost/week18";
 
 
-
+mongoose.Promise = global.Promise;
 // Database configuration with mongoose
 mongoose.connect(db, function(error){
 	if (error){

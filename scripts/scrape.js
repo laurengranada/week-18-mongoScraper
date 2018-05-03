@@ -11,7 +11,7 @@ var scrape = function(callback){
 		//then load into cherrio and save it to $ fir a shorthand selector
 		var $ = cheerio.load(body);
 		//save article info in array
-		var results = [];
+		var articles = [];
 		//find and loop through each element that has the "js-card_content" class 
 		//section holding the articles
 		$(".js-card_content").each(function(i, element){
