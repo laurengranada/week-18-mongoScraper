@@ -28,7 +28,7 @@ $(document).ready(function(){
 		articlesGoHere.append(articleCards);
 	}
 
-	function creatCards(article){
+	function createCards(article){
 		var card =
 		$(["<div class='card'>",
   			"<h3 class='card-header'>",
@@ -38,14 +38,16 @@ $(document).ready(function(){
     		"<p class='card-text'>",
     		article.summary,
     		"</p>",
-    		"<button type='button' class='btn btn-primary' id='deletebutton'>",
+    		"<button type='button' class='btn btn-danger' id='deletebutton'>",
     		"Delete From Your Saved",
     		"</button>",
+    		"<p></p>",
     		"<button type='button' class='btn btn-primary' id='notesbutton'>",
     		"Add Notes",
     		"</button>",
     		"</div>",
-			"</div>"
+			"</div>",
+			"<br>"
 			].join(""));
 		card.data("_id", article._id);
 		return card;

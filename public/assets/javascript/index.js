@@ -26,7 +26,7 @@ $(document).ready(function(){
 		articlesGoHere.append(articleCards);
 	}
 
-	function creatCards(article){
+	function createCards(article){
 		var card =
 		$(["<div class='card'>",
   			"<h3 class='card-header'>",
@@ -40,7 +40,8 @@ $(document).ready(function(){
     		"Save Article",
     		"</button>",
     		"</div>",
-			"</div>"
+			"</div>",
+			"<br>"
 			].join(""));
 		card.data("_id", article._id);
 		return card;

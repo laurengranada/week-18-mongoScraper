@@ -17,19 +17,19 @@ var scrape = function(callback){
 		$(".link-gray").each(function(i, element){
 			//grab children within the h2 tag
 			//grab inner text and store it in h2_title var
-			var title = $(this).children(".bold").text();
+			var title = $(this).children("h2").text();
 			//grab children with the class "js-card_desciption"
 			//grab inner text and store it in summary var
-			var summary = $(this).children(".js-card_description").text();
+			var summary = $(this).children("p").text();
 
 			//make sure both h2_title and summary are present
 			if(title && summary){
 				//following removes extra (lines/spacing/tabs)
-				var titleNeat = h2_title.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
+				var titleNeat = title.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
         		var summaryNeat = summary.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
         		//initialize object to push to results array
         		var info = {
-        			title: h2_titleNeat,
+        			title: titleNeat,
         			summary: summaryNeat
         		};
 

@@ -59,7 +59,7 @@ router.delete("/scrape/titles/:id", function(req, res){
 });
 
 //save title
-router.patch("/scrape/titles", function(err, data){
+router.patch("/scrape/titles", function(req, res){
   titlesController.update(req.body, function(err, data){
     res.json(data);
   });
