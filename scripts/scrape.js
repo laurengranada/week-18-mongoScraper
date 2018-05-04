@@ -12,16 +12,15 @@ var scrape = function(callback){
 		var $ = cheerio.load(html);
 		//save article info in array
 		var articles = [];
-		//find and loop through each element that has the "js-card_content" class 
+		//find and loop through each element that has the "link-gray" class 
 		//section holding the articles
 		$(".link-gray").each(function(i, element){
 			//grab children within the h2 tag
-			//grab inner text and store it in h2_title var
+			//grab inner text and store it in h2 var
 			var title = $(this).children("h2").text();
-			//grab children with the class "js-card_desciption"
+			//grab children with the class "p"
 			//grab inner text and store it in summary var
 			var summary = $(this).children("p").text();
-
 			//make sure both h2_title and summary are present
 			if(title && summary){
 				//following removes extra (lines/spacing/tabs)
@@ -30,7 +29,7 @@ var scrape = function(callback){
         		//initialize object to push to results array
         		var info = {
         			title: titleNeat,
-        			summary: summaryNeat
+        			summary: summaryNeat,
         		};
 
         		articles.push(info);

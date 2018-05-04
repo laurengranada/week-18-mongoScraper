@@ -38,6 +38,10 @@ $(document).ready(function(){
     		"<p class='card-text' style='color: grey;'>",
     		article.summary,
     		"</p>",
+    		// "<br>",
+    		// "<p class='card-text' style='color: grey;'>",
+    		// article.link,
+    		// "</p>",
     		"<button type='button' class='btn btn-danger' id='deletebutton'>",
     		"Delete From Your Saved",
     		"</button>",
@@ -120,8 +124,10 @@ $(document).ready(function(){
 	        "<hr />",
 	        "<ul class='list-group note-container'>",
 	        "</ul>",
-	        "<textarea placeholder='New Note' rows='4' cols='60'></textarea>",
-	        "<button class='btn btn-success save'>Save Note</button>",
+	        "<textarea placeholder='New Note' rows='4' cols='60' style='width: 100%;'></textarea>",
+	        "<button class='btn btn-success save' id='noteSaveButton'>",
+	        "Save Note",
+	        "</button>",
 	        "</div>"
 			].join("");
 			bootbox.dialog({
@@ -132,7 +138,7 @@ $(document).ready(function(){
 				_id: currentArticle._id,
 				notes: data || []
 			};
-			$(".btn.save").data("article", noteData);
+			$("#noteSaveButton").data("article", noteData);
 			renderNotesList(noteData);
 		});
 	}

@@ -1,7 +1,8 @@
 // controller - notes
 //require model + script
-var Note = require("../models/Note.js");
+var scrape = require("../scripts/scrape.js");
 var generateDate = require("../scripts/date.js");
+var Note = require("../models/Note.js");
 
 module.exports = {
 	get: function(data, callback){
