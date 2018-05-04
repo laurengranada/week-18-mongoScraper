@@ -30,12 +30,12 @@ $(document).ready(function(){
 
 	function createCards(article){
 		var card =
-		$(["<div class='card'>",
-  			"<h3 class='card-header'>",
+		$(["<div class='card' style='background-color: #f9f0ff;'>",
+  			"<h3 class='card-header' style='background-color: #d9c7ed;'>",
   			article.title,
   			"</h3>",
   			"<div class='card-block'>",
-    		"<p class='card-text'>",
+    		"<p class='card-text' style='color: grey;'>",
     		article.summary,
     		"</p>",
     		"<button type='button' class='btn btn-danger' id='deletebutton'>",
