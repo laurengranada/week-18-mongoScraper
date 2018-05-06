@@ -125,7 +125,7 @@ $(document).ready(function(){
 	        "<ul class='list-group note-container'>",
 	        "</ul>",
 	        "<textarea placeholder='New Note' rows='4' cols='60' style='width: 100%;'></textarea>",
-	        "<button class='btn btn-success save' id='noteSaveButton'>",
+	        "<button class='btn btn-success save' id='notesSave'>",
 	        "Save Note",
 	        "</button>",
 	        "</div>"
@@ -138,7 +138,7 @@ $(document).ready(function(){
 				_id: currentArticle._id,
 				notes: data || []
 			};
-			$("#noteSaveButton").data("article", noteData);
+			$("#notesSave").data("article", noteData);
 			renderNotesList(noteData);
 		});
 	}
