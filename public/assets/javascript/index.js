@@ -65,7 +65,7 @@ $(document).ready(function(){
     		"Save Article",
     		"</button>",
     		"</div>",
-			"</div>"
+			"</div>",
 			].join(""));
 		articlesGoHere.append(alertingEmpty);
 	}
