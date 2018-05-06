@@ -160,7 +160,7 @@ $(document).ready(function(){
 	function NoteDelete(){
 		var noteToDelete = $(this).data("_id");
 		$.ajax({
-			url: "/scrape/notes" + noteToDelete,
+			url: "/scrape/notes/" + noteToDelete,
 			method: "DELETE"
 		}).then(function(){
 			bootbox.hideAll();
