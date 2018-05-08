@@ -98,7 +98,7 @@ $(document).ready(function(){
 				notesToRender.push(currentNote);
 			}
 		}
-		$(".note-container").append(notesToRender);
+		$("#notesHere").append(notesToRender);
 	}
 
 	function handleDelete(){
@@ -115,19 +115,18 @@ $(document).ready(function(){
 
 	function handleNotes(){
 		var currentArticle = $(this).parents(".card").data();
-		$.get("scrape/notes/" + currentArticle._id).then(function(data){
+		$.get("/scrape/notes/" + currentArticle._id).then(function(data){
 			var modalText = [
 			"<div class='container-fluid text-center'>",
 	        "<h4>Notes For Article: ",
 	        currentArticle._id,
 	        "</h4>",
 	        "<hr />",
-	        "<ul class='list-group note-container'>",
+	        "<ul class='list-group note-container' id='notesHere'>",
 	        "</ul>",
+	        "<br>",
 	        "<textarea placeholder='New Note' rows='4' cols='60' style='width: 100%;'></textarea>",
-	        "<button class='btn btn-success save' id='notesSave'>",
-	        "Save Note",
-	        "</button>",
+	        "<button class='btn btn-success save' id='notesSave'>Save Note</button>",
 	        "</div>"
 			].join("");
 			bootbox.dialog({
