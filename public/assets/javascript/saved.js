@@ -87,7 +87,7 @@ $(document).ready(function(){
 			].join("");
 			notesToRender.push(currentNote);
 		}else{
-			for(var i=0; i < data.notes.length; i++){
+			for(var i = 0; i < data.notes.length; i++){
 				currentNote = $([
 			        "<li class='list-group-item note'>",
 			        data.notes[i].noteText,
@@ -96,9 +96,9 @@ $(document).ready(function(){
 				].join(""));
 				currentNote.children("button").data("_id", data.notes[i]._id);
 				notesToRender.push(currentNote);
-			}
+			} 
 		}
-		$("#notesHere").append(notesToRender);
+		$(".note-container").append(notesToRender);
 	}
 
 	function handleDelete(){
@@ -122,7 +122,7 @@ $(document).ready(function(){
 	        currentArticle._id,
 	        "</h4>",
 	        "<hr />",
-	        "<ul class='list-group note-container' id='notesHere'>",
+	        "<ul class='list-group note-container'>",
 	        "</ul>",
 	        "<br>",
 	        "<textarea placeholder='New Note' rows='4' cols='60' style='width: 100%;'></textarea>",
