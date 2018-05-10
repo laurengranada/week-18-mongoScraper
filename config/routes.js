@@ -87,6 +87,7 @@ router.delete("/scrape/notes/:id", function(req, res){
   });
 });
 
+//need to analyze why notes in modal are not appearing
 //saves a new note
 router.post("/scrape/notes", function(req, res){
   notesController.save(req.body, function(data){

@@ -141,7 +141,7 @@ $(document).ready(function(){
 			renderNotesList(noteData);
 		});
 	}
-
+//need to further analyze this section for errors on modal and notes
 	function NoteSave(){
 		var noteData;
 		var newNote = $(".bootbox-body textarea").val().trim();
@@ -167,3 +167,6 @@ $(document).ready(function(){
 	}
 
 });
+
+
+
