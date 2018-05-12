@@ -97,10 +97,11 @@ $(document).ready(function(){
 				].join(""));
 				currentNote.children("button").data("_id", data.notes[i]._id);
 				notesToRender.push(currentNote);
-				console.log(data.notes[i]);
+
 			} 
 		}
 		$(".note-container").append(notesToRender);
+		console.log(currentNote);
 		
 	}
 
