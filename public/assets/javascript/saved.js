@@ -38,10 +38,6 @@ $(document).ready(function(){
     		"<p class='card-text' style='color: grey;'>",
     		article.summary,
     		"</p>",
-    		// "<br>",
-    		// "<p class='card-text' style='color: grey;'>",
-    		// article.link,
-    		// "</p>",
     		"<button type='button' class='btn btn-danger' id='deletebutton'>",
     		"Delete From Your Saved",
     		"</button>",
@@ -79,13 +75,14 @@ $(document).ready(function(){
 	function renderNotesList(data){
 		var notesToRender = [];
 		var currentNote;
-		if(!data.notes.length){
+		if(data.notes.length == 0){
 			currentNote = [
 	        "<li class='list-group-item note'>",
 	        "No notes for this article yet.",
 	        "</li>"
 			].join("");
 			notesToRender.push(currentNote);
+			console.log(data);
 		}
 		else{
 			for(var i = 0; i < data.notes.length; i++){
@@ -97,11 +94,10 @@ $(document).ready(function(){
 				].join(""));
 				currentNote.children("button").data("_id", data.notes[i]._id);
 				notesToRender.push(currentNote);
-
 			} 
 		}
 		$(".note-container").append(notesToRender);
-		console.log(currentNote);
+		
 		
 	}
 
