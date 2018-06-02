@@ -75,7 +75,7 @@ $(document).ready(function(){
 	function renderNotesList(data){
 		var notesToRender = [];
 		var currentNote;
-		if(data.notes.length == 0){
+		if(!data.notes.length){
 			currentNote = [
 	        "<li class='list-group-item note'>",
 	        "No notes for this article yet.",
@@ -94,8 +94,9 @@ $(document).ready(function(){
 				].join(""));
 				currentNote.children("button").data("_id", data.notes[i]._id);
 				notesToRender.push(currentNote);
+				console.log(data.notes);
 			} 
-		}
+		} console.log(data.notes);
 		$(".note-container").append(notesToRender);
 		
 		
